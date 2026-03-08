@@ -1,0 +1,473 @@
+# Full liturgical text for each section of the English worship services.
+# Format:
+#   Each section has a `title`, optional `subtitle`, and `slides`.
+#   Each slide has `lines` — a list of text strings.
+#   Lines prefixed with "P:" are Priest lines (gold), "C:" are Congregation (white).
+#   Lines with no prefix are plain text (white).
+#   A line of "---" forces a slide break.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMMON SECTIONS (both Divine Worship and Holy Qurbana)
+# ─────────────────────────────────────────────────────────────────────────────
+
+call_to_worship:
+  title: "Call to Worship"
+  slides:
+    - lines:
+        - "Make a joyful noise to the Lord, all the lands!"
+        - "Serve the Lord with gladness!"
+        - "Come into His presence with singing!"
+    - lines:
+        - "Enter His gates with thanksgiving,"
+        - "and His courts with praise!"
+        - "Give thanks to Him, bless His name!"
+    - lines:
+        - "For the Lord is good;"
+        - "His steadfast love endures forever,"
+        - "and His faithfulness to all generations."
+        - ""
+        - "— Psalm 100:1–5"
+
+kauma:
+  title: "The Kauma"
+  subtitle: "Act of Adoration"
+  slides:
+    - lines:
+        - "P: Glory be to the Father,"
+        - "    to the Son and to the Holy Spirit,"
+        - "C: As it was in the beginning,"
+        - "    is now and ever shall be,"
+        - "    world without end. Amen."
+    - lines:
+        - "P: From everlasting to everlasting, You are God."
+        - "    You alone are holy."
+        - "    You alone are the Most High."
+        - "C: We worship You, we give You thanks,"
+        - "    we glorify Your holy name."
+
+trisagion:
+  title: "The Trisagion"
+  slides:
+    - lines:
+        - "Holy, Holy, Holy,"
+        - "Lord God of power and might,"
+        - "Heaven and Earth are full of Your Glory."
+        - "Hosanna in the Highest."
+    - lines:
+        - "Blessed is He who has come"
+        - "and is to come again in the name of the Lord."
+        - "Hosanna in the highest."
+    - lines:
+        - "P: Holy art Thou, O God."
+        - "C: Holy art Thou, O God."
+        - "P: Holy art Thou, Almighty Lord."
+        - "C: Holy art Thou, Almighty Lord."
+        - "P: Holy art Thou, Immortal Lord."
+        - "C: Holy art Thou, Immortal Lord."
+    - lines:
+        - "O Lord, the Messiah,"
+        - "who was crucified for us,"
+        - "have mercy on us."
+
+promeon:
+  title: "The Promeon"
+  subtitle: "Prayer for Grace"
+  slides:
+    - lines:
+        - "P: Let us pray."
+        - ""
+        - "Holy and Almighty God,"
+        - "we come before You in humility and awe,"
+        - "trusting in Your grace and mercy."
+    - lines:
+        - "Through Your Son, our Lord Jesus Christ,"
+        - "You have opened the way of salvation."
+        - "Send Your Holy Spirit upon us,"
+        - "that our worship may be worthy of You."
+        - ""
+        - "C: Amen."
+
+sedra:
+  title: "The Sedra"
+  subtitle: "Prayer of Supplication"
+  slides:
+    - lines:
+        - "P: O God, our Father,"
+        - "we confess that we are unworthy"
+        - "to stand before Your holy presence."
+    - lines:
+        - "We have sinned against You"
+        - "in thought, word, and deed."
+        - "We have left undone those things"
+        - "which we ought to have done."
+    - lines:
+        - "But You, O Lord, are full of compassion"
+        - "and abounding in steadfast love."
+        - "Forgive us, cleanse us,"
+        - "and renew a right spirit within us."
+        - ""
+        - "C: Lord, have mercy. Lord, have mercy."
+        - "    Lord, have mercy upon us."
+
+etra:
+  title: "The Etra"
+  subtitle: "Prayer of Incense"
+  slides:
+    - lines:
+        - "P: May this offering of prayer rise before You,"
+        - "    O Lord, as incense in Your sight."
+        - ""
+        - "C: May our worship ascend to You"
+        - "    as a fragrant offering,"
+        - "    through Jesus Christ our Lord. Amen."
+
+first_lesson_intro:
+  title: "First Lesson"
+  slides:
+    - lines:
+        - "The First Lesson is from the book of"
+        - "{book}, Chapter {chapter},"
+        - "beginning at verse {verse_start}."
+        - ""
+        - "Here ends the First Lesson."
+
+second_lesson_intro:
+  title: "Second Lesson"
+  slides:
+    - lines:
+        - "The Second Lesson is from the book of"
+        - "{book}, Chapter {chapter},"
+        - "beginning at verse {verse_start}."
+        - ""
+        - "Here ends the Second Lesson."
+
+epistle_intro:
+  title: "The Epistle"
+  slides:
+    - lines:
+        - "The Epistle is from the letter of"
+        - "{book}, Chapter {chapter},"
+        - "beginning at verse {verse_start}."
+        - ""
+        - "Here ends the Epistle."
+
+gospel_intro:
+  title: "The Holy Gospel"
+  subtitle: "Please rise"
+  slides:
+    - lines:
+        - "The Holy Gospel of our Lord Jesus Christ"
+        - "which proclaims life and salvation to the world"
+        - "as recorded by the Evangelist {evangelist}."
+    - lines:
+        - "C: Glory be to Thee, O Lord."
+        - "    Glory be to Thee."
+    - lines:
+        - "Here ends the Holy Gospel."
+        - ""
+        - "C: Praise be to Thee, O Christ."
+
+birthday_anniversary:
+  title: "Birthdays & Anniversaries"
+  slides:
+    - lines:
+        - "We give thanks to God for all those"
+        - "celebrating birthdays and wedding anniversaries"
+        - "this week."
+    - lines:
+        - "P: May the Lord bless you and keep you;"
+        - "    May the Lord make His face shine upon you"
+        - "    and be gracious to you;"
+        - "C: May the Lord lift up His countenance upon you"
+        - "    and give you peace. Amen."
+        - "    — Numbers 6:24–26"
+
+offertory:
+  title: "Hymn & Offertory"
+  slides:
+    - lines:
+        - "As we bring our tithes and offerings,"
+        - "let us do so with grateful hearts,"
+        - "remembering the words of our Lord:"
+    - lines:
+        - "\"Each of you should give what you have decided"
+        - "in your heart to give, not reluctantly or"
+        - "under compulsion, for God loves a cheerful giver.\""
+        - ""
+        - "— 2 Corinthians 9:7"
+
+sermon_header:
+  title: "The Sermon"
+  slides: []    # dynamic: sermon title, preacher, scripture
+
+confession:
+  title: "The Confession"
+  slides:
+    - lines:
+        - "P: Let us confess our sins to God,"
+        - "    and to one another."
+    - lines:
+        - "C: Almighty God, our heavenly Father,"
+        - "    we have sinned against You"
+        - "    and against our fellow human beings,"
+        - "    in thought and word and deed,"
+        - "    through negligence, through weakness,"
+        - "    through our own deliberate fault."
+    - lines:
+        - "C: We are truly sorry and repent of all our sins."
+        - "    For the sake of Your Son Jesus Christ,"
+        - "    who died for us,"
+        - "    forgive us all that is past;"
+        - "    and grant that we may serve You"
+        - "    in newness of life."
+    - lines:
+        - "P: Almighty God, who forgives all who truly repent,"
+        - "    have mercy upon you,"
+        - "    pardon and deliver you from all your sins,"
+        - "    confirm and strengthen you in all goodness,"
+        - "    and keep you in life eternal."
+        - ""
+        - "C: Amen."
+
+nicene_creed:
+  title: "The Nicene Creed"
+  slides:
+    - lines:
+        - "We believe in one God,"
+        - "the Father, the Almighty,"
+        - "maker of heaven and earth,"
+        - "of all that is, seen and unseen."
+    - lines:
+        - "We believe in one Lord, Jesus Christ,"
+        - "the only Son of God,"
+        - "eternally begotten of the Father,"
+        - "God from God, Light from Light,"
+        - "true God from true God,"
+        - "begotten, not made,"
+        - "of one Being with the Father."
+    - lines:
+        - "Through Him all things were made."
+        - "For us and for our salvation"
+        - "He came down from heaven:"
+        - "by the power of the Holy Spirit"
+        - "He became incarnate from the Virgin Mary,"
+        - "and was made man."
+    - lines:
+        - "For our sake He was crucified under Pontius Pilate;"
+        - "He suffered death and was buried."
+        - "On the third day He rose again"
+        - "in accordance with the Scriptures;"
+        - "He ascended into heaven"
+        - "and is seated at the right hand of the Father."
+    - lines:
+        - "He will come again in glory"
+        - "to judge the living and the dead,"
+        - "and His kingdom will have no end."
+    - lines:
+        - "We believe in the Holy Spirit,"
+        - "the Lord, the giver of life,"
+        - "who proceeds from the Father."
+        - "With the Father and the Son"
+        - "He is worshipped and glorified."
+        - "He has spoken through the Prophets."
+    - lines:
+        - "We believe in one holy, catholic,"
+        - "and apostolic Church."
+        - "We acknowledge one baptism"
+        - "for the forgiveness of sins."
+        - "We look for the resurrection of the dead,"
+        - "and the life of the world to come. Amen."
+
+intercessions:
+  title: "Prayers of Intercession"
+  slides:
+    - lines:
+        - "P: Let us pray for the Church,"
+        - "    the world, and all people in need."
+    - lines:
+        - "For the universal Church of Christ,"
+        - "for all who minister and serve,"
+        - "and for all the faithful people of God."
+        - ""
+        - "C: Lord, hear our prayer."
+    - lines:
+        - "For the nations of the world,"
+        - "for peace and justice,"
+        - "and for all who lead and govern."
+        - ""
+        - "C: Lord, hear our prayer."
+    - lines:
+        - "For all who are sick, suffering,"
+        - "or in any kind of need;"
+        - "for the poor and the oppressed."
+        - ""
+        - "C: Lord, hear our prayer."
+    - lines:
+        - "For our parish, our families,"
+        - "and all those dear to us."
+        - ""
+        - "C: Lord, hear our prayer. Amen."
+
+doxology_default:
+  title: "Doxology"
+  slides:
+    - lines:
+        - "Praise God, from Whom all blessings flow;"
+        - "Praise Him, all creatures here below;"
+        - "Praise Him above, ye heav'nly host;"
+        - "Praise Father, Son, and Holy Ghost."
+        - "Amen."
+
+benediction:
+  title: "The Benediction"
+  slides:
+    - lines:
+        - "P: The Lord bless you and keep you;"
+        - "    The Lord make His face shine upon you"
+        - "    and be gracious to you;"
+        - "    The Lord lift up His countenance upon you"
+        - "    and give you peace."
+        - ""
+        - "C: Amen."
+    - lines:
+        - "Go in peace to love and serve the Lord."
+        - ""
+        - "C: Thanks be to God."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HOLY QURBANA ADDITIONAL SECTIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+kiss_of_peace:
+  title: "The Kiss of Peace"
+  slides:
+    - lines:
+        - "P: Peace be with you."
+        - "C: And also with you."
+        - ""
+        - "Let us offer one another a sign of peace."
+
+sursum_corda:
+  title: "Sursum Corda"
+  subtitle: "Lift Up Your Hearts"
+  slides:
+    - lines:
+        - "P: The Lord be with you."
+        - "C: And also with you."
+        - ""
+        - "P: Lift up your hearts."
+        - "C: We lift them up to the Lord."
+        - ""
+        - "P: Let us give thanks to the Lord our God."
+        - "C: It is right to give Him thanks and praise."
+
+eucharistic_prayer:
+  title: "The Eucharistic Prayer"
+  slides:
+    - lines:
+        - "P: It is truly right and good,"
+        - "    always and everywhere to give thanks to You,"
+        - "    holy Father, almighty and eternal God,"
+        - "    through Jesus Christ our Lord."
+    - lines:
+        - "Holy, Holy, Holy Lord,"
+        - "God of power and might,"
+        - "heaven and earth are full of Your glory."
+        - "Hosanna in the highest."
+    - lines:
+        - "Blessed is He who comes"
+        - "in the name of the Lord."
+        - "Hosanna in the highest."
+    - lines:
+        - "P: On the night He was betrayed,"
+        - "    our Lord Jesus Christ took bread;"
+        - "    and when He had given thanks,"
+        - "    He broke it and gave it to His disciples, saying:"
+    - lines:
+        - "\"Take, eat; this is My body"
+        - "which is given for you."
+        - "Do this in remembrance of Me.\""
+    - lines:
+        - "In the same way, after supper"
+        - "He took the cup and gave it to them, saying:"
+        - ""
+        - "\"Drink this, all of you;"
+        - "this is My blood of the new covenant,"
+        - "which is shed for you and for many"
+        - "for the forgiveness of sins.\""
+
+epiclesis:
+  title: "The Sanctification"
+  subtitle: "Epiclesis – Prayer of the Holy Spirit"
+  slides:
+    - lines:
+        - "P: Send Your Holy Spirit upon us"
+        - "    and upon these gifts of bread and wine,"
+        - "    that they may be for us"
+        - "    the body and blood of Your Son Jesus Christ."
+    - lines:
+        - "May the Holy Spirit sanctify this bread"
+        - "that it may be the body of our Lord Jesus Christ."
+        - ""
+        - "May the Holy Spirit sanctify the wine in this chalice"
+        - "that it may be the blood of our Lord Jesus Christ."
+    - lines:
+        - "O Lord, sanctify the bodies and souls"
+        - "of those who receive these gifts,"
+        - "that they may be strengthened in faith,"
+        - "filled with Your Spirit,"
+        - "and united in the body of Christ."
+        - ""
+        - "C: Amen."
+
+lords_prayer:
+  title: "The Lord's Prayer"
+  slides:
+    - lines:
+        - "Our Father in heaven,"
+        - "hallowed be Your name."
+        - "Your kingdom come."
+        - "Your will be done,"
+        - "on earth as in heaven."
+    - lines:
+        - "Give us today our daily bread."
+        - "Forgive us our sins,"
+        - "as we forgive those who sin against us."
+        - "Do not bring us to the time of trial,"
+        - "but deliver us from the evil one."
+    - lines:
+        - "For the kingdom,"
+        - "the power and the glory are Yours,"
+        - "now and forever. Amen."
+
+fraction:
+  title: "The Fraction"
+  slides:
+    - lines:
+        - "P: We break this bread to share in the body of Christ."
+        - "C: Though we are many, we are one body,"
+        - "    because we all share in one bread."
+
+communion_invitation:
+  title: "Holy Communion"
+  slides:
+    - lines:
+        - "P: The gifts of God for the people of God."
+        - "    Come, for all things are ready."
+        - ""
+        - "C: Lord, I am not worthy to receive You,"
+        - "    but only say the word"
+        - "    and I shall be healed."
+
+post_communion:
+  title: "Post-Communion Thanksgiving"
+  slides:
+    - lines:
+        - "P: Almighty God, we thank You for feeding us"
+        - "    with the body and blood of Your Son Jesus Christ."
+        - "    Through Him we offer You our souls and bodies"
+        - "    to be a living sacrifice."
+    - lines:
+        - "C: Send us out in the power of Your Spirit"
+        - "    to live and work to Your praise and glory."
+        - "    Amen."

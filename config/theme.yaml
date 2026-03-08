@@ -1,0 +1,51 @@
+# Visual theme for Mar Thoma Church worship slides
+# All colors are hex strings. Sizes are in points (pt).
+
+slide:
+  width_inches: 13.33
+  height_inches: 7.5
+
+background:
+  type: gradient          # solid | gradient
+  color1: "#6B0020"       # top-left (deep burgundy)
+  color2: "#1A0005"       # bottom-right (near-black maroon)
+
+colors:
+  white:       "#FFFFFF"
+  gold:        "#D4AF37"
+  cream:       "#F5DEB3"
+  light_grey:  "#CCCCCC"
+  dark_grey:   "#333333"
+  priest:      "#FFD700"  # gold for P: lines
+  congregation: "#FFFFFF" # white for C: lines
+
+fonts:
+  title:    "Calibri"
+  body:     "Calibri"
+  scripture: "Calibri"
+
+sizes:
+  title_slide_church: 28
+  title_slide_service: 44
+  title_slide_date:   24
+  section_divider:    48
+  liturgy_label:      22   # "P:" / "C:"
+  liturgy_body:       30
+  song_body:          36
+  scripture_ref:      24
+  scripture_body:     28
+  info_heading:       40
+  info_body:          32
+
+logo:
+  path: "assets/logo.png"
+  width_inches: 0.85
+  # placed top-right; top/right margin 0.15"
+  top_inches: 0.12
+  right_margin_inches: 0.15
+
+margins:
+  left_inches: 0.5
+  right_inches: 1.2     # extra space for logo on right
+  top_inches: 0.4
+  bottom_inches: 0.3
