@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" x-init="init()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worship Order Generator – Mar Thoma Church</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    /* Custom MTC colour palette */
+    :root {
+      --burgundy:    #6B0020;
+      --burgundy-dk: #3d0012;
+      --gold:        #D4AF37;
+      --gold-lt:     #f0d060;
+      --cream:       #fdf6ec;
+    }
+    [x-cloak] { display: none !important; }
+
+    body { background: #f5f0eb; }
+
+    /* Gradient header */
+    .mtc-header {
+      background: linear-gradient(135deg, var(--burgundy-dk) 0%, var(--burgundy) 100%);
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.10);
+    }
+
+    /* Section toggle header */
+    .section-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      user-select: none;
+      background: linear-gradient(90deg, var(--burgundy) 0%, #8a0028 100%);
+      color: white;
+    }
+    .section-toggle:hover { filter: brightness(1.08); }
+
+    /* Gold accent bar on form inputs */
+    input[type="text"], input[type="date"], select, textarea {
+      border: 1.5px solid #d0c0b0;
+      border-radius: 0.5rem;
+      padding: 0.55rem 0.75rem;
+      width: 100%;
+      font-size: 0.95rem;
+      background: white;
+      transition: border-color .15s;
+      outline: none;
+    }
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,.20);
+    }
+    label { font-size: 0.82rem; font-weight: 600; color: #555; margin-bottom: 0.2rem; display: block; }
+
+    /* Pill badges */
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 99px;
+      background: var(--gold); color: var(--burgundy-dk);
+    }
+
+    /* Generate button */
+    .btn-generate {
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dk) 100%);
+      color: white; font-weight: 700; font-size: 1.1rem;
+      padding: 0.85rem 2rem; border-radius: 0.75rem;
+      box-shadow: 0 4px 16px rgba(107,0,32,.35);
+      transition: transform .15s, box-shadow .15s, filter .15s;
+      cursor: pointer; width: 100%; border: none;
+    }
+    .btn-generate:hover:not(:disabled) {
+      filter: brightness(1.12);
+      box-shadow: 0 6px 22px rgba(107,0,32,.45);
+      transform: translateY(-1px);
+    }
+    .btn-generate:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* Secondary buttons */
+    .btn-outline {
+      border: 1.5px solid var(--burgundy); color: var(--burgundy);
+      background: white; font-size: 0.85rem; font-weight: 600;
+      padding: 0.45rem 1rem; border-radius: 0.5rem; cursor: pointer;
+      transition: background .12s, color .12s;
+    }
+    .btn-outline:hover { background: var(--burgundy); color: white; }
+
+    .btn-gold {
+      border: 1.5px solid var(--gold); color: var(--burgundy-dk);
+      background: var(--gold); font-size: 0.85rem; font-weight: 600;
+      padding: 0.45rem 1rem; border-radius: 0.5rem; cursor: pointer;
+      transition: filter .12s;
+    }
+    .btn-gold:hover { filter: brightness(1.1); }
+
+    /* Remove button */
+    .btn-remove {
+      color: #c00; background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; line-height: 1; padding: 0 0.25rem;
+    }
+    .btn-remove:hover { color: #800; }
+
+    /* Toggle switch */
+    .toggle-track {
+      width: 2.75rem; height: 1.5rem; border-radius: 99px;
+      transition: background .2s; cursor: pointer;
+      position: relative; flex-shrink: 0;
+    }
+    .toggle-thumb {
+      position: absolute; top: 2px; left: 2px;
+      width: 1.25rem; height: 1.25rem; border-radius: 50%;
+      background: white; transition: transform .2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+
+    /* Lectionary pill row */
+    .reading-row {
+      display: grid; gap: 0.5rem;
+    }
+    .reading-label {
+      font-size: 0.75rem; color: var(--burgundy); font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    /* Spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      width: 1.2rem; height: 1.2rem; border-radius: 50%;
+      border: 2.5px solid rgba(255,255,255,.4);
+      border-top-color: white;
+      animation: spin .7s linear infinite;
+      display: inline-block;
+    }
+
+    /* Success flash */
+    @keyframes fadeDown { from { opacity:0; transform: translateY(-12px); } to { opacity:1; transform: none; } }
+    .flash { animation: fadeDown .3s ease; }
+
+    /* Mobile-friendly grid */
+    .form-grid { display: grid; gap: 1rem; }
+    @media (min-width: 640px) {
+      .form-grid-2 { grid-template-columns: 1fr 1fr; }
+      .form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- ░░ HEADER ░░ -->
+  <header class="mtc-header text-white sticky top-0 z-30 shadow-lg">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3">
+      <!-- Cross icon -->
+      <div class="text-2xl leading-none" style="color: var(--gold)">✝</div>
+      <div>
+        <div class="font-bold text-base leading-tight">Worship Order Generator</div>
+        <div class="text-xs opacity-70">Mar Thoma Church</div>
+      </div>
+      <!-- Progress chips (desktop) -->
+      <div class="ml-auto hidden sm:flex items-center gap-1.5 text-xs">
+        <template x-for="(s, i) in steps" :key="i">
+          <span
+            class="px-2 py-0.5 rounded-full font-semibold transition-colors"
+            :style="currentStep >= i
+              ? 'background:var(--gold);color:var(--burgundy-dk)'
+              : 'background:rgba(255,255,255,.15);color:rgba(255,255,255,.7)'"
+            x-text="s"
+          ></span>
+        </template>
+      </div>
+    </div>
+  </header>
+
+  <!-- ░░ MAIN ░░ -->
+  <main class="max-w-3xl mx-auto px-4 py-6 space-y-4">
+
+    <!-- ── Flash / error banner ── -->
+    <div x-show="flash" x-cloak class="flash card p-4 flex items-start gap-3"
+         :class="flashType === 'error' ? 'border-l-4 border-red-500' : 'border-l-4'"
+         :style="flashType !== 'error' ? 'border-color:var(--gold)' : ''">
+      <span class="text-xl" x-text="flashType === 'error' ? '⚠️' : '✅'"></span>
+      <p class="text-sm" x-text="flash"></p>
+      <button @click="flash=''" class="ml-auto text-gray-400 hover:text-gray-700 text-lg leading-none">&times;</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECTION 1: SERVICE DETAILS
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="card overflow-hidden">
+      <div class="section-toggle" @click="open.service = !open.service">
+        <div class="flex items-center gap-2">
+          <span class="text-xl" style="color:var(--gold)">📅</span>
+          <span class="font-semibold">Service Details</span>
+          <span class="badge" x-show="form.date" x-text="formatDate(form.date)"></span>
+        </div>
+        <svg :class="open.service ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+
+      <div x-show="open.service" x-collapse class="p-5 space-y-4">
+        <div class="form-grid form-grid-2">
+          <div>
+            <label>Service Date</label>
+            <input type="date" x-model="form.date" @change="fetchLectionary()" />
+          </div>
+          <div>
+            <label>Service Type</label>
+            <select x-model="form.service_type">
+              <option value="divine_worship">English Divine Worship</option>
+              <option value="holy_qurbana">English Holy Qurbana</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label>Congregation Name</label>
+          <input type="text" x-model="form.congregation_name" placeholder="Mar Thoma Church" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECTION 2: LECTIONARY
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="card overflow-hidden">
+      <div class="section-toggle" @click="open.lectionary = !open.lectionary">
+        <div class="flex items-center gap-2">
+          <span class="text-xl" style="color:var(--gold)">📖</span>
+          <span class="font-semibold">Lectionary Readings</span>
+          <span class="badge" x-show="lect.gospel" x-text="lect.gospel"></span>
+        </div>
+        <svg :class="open.lectionary ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+
+      <div x-show="open.lectionary" x-collapse class="p-5 space-y-4">
+
+        <!-- Fetch bar -->
+        <div class="flex items-center gap-3">
+          <button
+            class="btn-gold flex items-center gap-2"
+            @click="fetchLectionary(true)"
+            :disabled="lectLoading"
+          >
+            <span x-show="lectLoading" class="spinner" style="border-top-color:var(--burgundy-dk)"></span>
+            <span x-text="lectLoading ? 'Fetching…' : 'Fetch Lectionary'"></span>
+          </button>
+          <div x-show="lect.matchedDate && lect.matchedDate !== form.date" class="text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded">
+            Using nearest Sunday: <strong x-text="formatDate(lect.matchedDate)"></strong>
+          </div>
+          <div x-show="lectEmpty && !lectLoading" class="text-xs text-gray-500">
+            No data found — enter manually below
+          </div>
+        </div>
+
+        <!-- Theme pill -->
+        <div x-show="lect.theme" class="text-sm font-semibold px-3 py-1.5 rounded-lg inline-block"
+             style="background:var(--cream);color:var(--burgundy)">
+          🏷 Theme: <span x-text="lect.theme"></span>
+        </div>
+
+        <!-- Reading fields -->
+        <div class="form-grid form-grid-2">
+          <div>
+            <label>1st Lesson (OT)</label>
+            <input type="text" x-model="lect.first_lesson" placeholder="e.g. Exodus 3:1-10" />
+          </div>
+          <div>
+            <label>Epistle</label>
+            <input type="text" x-model="lect.epistle" placeholder="e.g. Romans 8:14-17" />
+          </div>
+          <div>
+            <label>2nd Lesson</label>
+            <input type="text" x-model="lect.second_lesson" placeholder="e.g. Acts 2:1-13" />
+          </div>
+          <div>
+            <label>Holy Gospel</label>
+            <input type="text" x-model="lect.gospel" placeholder="e.g. Luke 15:11-32" />
+          </div>
+        </div>
+        <p class="text-xs text-gray-400">Fields are pre-filled from the lectionary database. You may edit them freely.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECTION 3: SONG SELECTIONS
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="card overflow-hidden">
+      <div class="section-toggle" @click="open.songs = !open.songs">
+        <div class="flex items-center gap-2">
+          <span class="text-xl" style="color:var(--gold)">🎵</span>
+          <span class="font-semibold">Song Selections</span>
+          <span class="badge" x-text="songCount + ' song' + (songCount !== 1 ? 's' : '')"></span>
+        </div>
+        <svg :class="open.songs ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+
+      <div x-show="open.songs" x-collapse class="p-5 space-y-5">
+
+        <!-- Standard slots -->
+        <div class="form-grid form-grid-2">
+          <div>
+            <label>Pre-Worship Song <span class="font-normal text-gray-400">(optional)</span></label>
+            <input type="text" x-model="songs.pre_worship" list="song-list" placeholder="Leave blank to skip" />
+          </div>
+          <div>
+            <label>Song Between Lessons</label>
+            <input type="text" x-model="songs.between_lessons" list="song-list" placeholder="Leave blank to skip" />
+          </div>
+          <div>
+            <label>Birthday &amp; Anniversary Song</label>
+            <input type="text" x-model="songs.birthday_anniversary" list="song-list" placeholder="Happy Birthday" />
+          </div>
+          <div>
+            <label>Offertory Hymn</label>
+            <input type="text" x-model="songs.offertory" list="song-list" placeholder="Leave blank to skip" />
+          </div>
+          <div class="sm:col-span-2">
+            <label>Doxology</label>
+            <input type="text" x-model="songs.doxology" list="song-list" placeholder="Praise God from Whom All Blessings Flow" />
+          </div>
+        </div>
+
+        <!-- ── Special Prayer ── -->
+        <div class="rounded-lg p-4 space-y-3" style="background:var(--cream)">
+          <div class="flex items-center justify-between">
+            <label class="!mb-0 text-sm font-bold" style="color:var(--burgundy)">Special Prayer</label>
+            <!-- Toggle -->
+            <div
+              class="toggle-track"
+              :style="songs.special_prayer.enabled ? 'background:var(--burgundy)' : 'background:#ccc'"
+              @click="songs.special_prayer.enabled = !songs.special_prayer.enabled"
+            >
+              <div class="toggle-thumb"
+                   :style="songs.special_prayer.enabled ? 'transform:translateX(1.25rem)' : ''"></div>
+            </div>
+          </div>
+          <div x-show="songs.special_prayer.enabled" x-collapse class="form-grid form-grid-2">
+            <div>
+              <label>Prayer Topic</label>
+              <input type="text" x-model="songs.special_prayer.topic" placeholder="e.g. Mission Sunday" />
+            </div>
+            <div>
+              <label>Special Prayer Song <span class="font-normal text-gray-400">(optional)</span></label>
+              <input type="text" x-model="songs.special_prayer.song" list="song-list" placeholder="Leave blank to skip" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Communion Songs (Holy Qurbana only) ── -->
+        <div x-show="form.service_type === 'holy_qurbana'" x-collapse>
+          <div class="rounded-lg p-4 space-y-3" style="background:var(--cream)">
+            <div class="flex items-center justify-between">
+              <label class="!mb-0 text-sm font-bold" style="color:var(--burgundy)">Communion Songs</label>
+              <button class="btn-outline text-xs" @click="songs.communion.push('')">+ Add Song</button>
+            </div>
+            <template x-for="(s, i) in songs.communion" :key="i">
+              <div class="flex items-center gap-2">
+                <input type="text" :x-model="`songs.communion[${i}]`"
+                       @input="songs.communion[i] = $event.target.value"
+                       :value="songs.communion[i]"
+                       list="song-list"
+                       :placeholder="'Communion song ' + (i+1)" class="flex-1" />
+                <button class="btn-remove" @click="songs.communion.splice(i, 1)" title="Remove">&times;</button>
+              </div>
+            </template>
+            <p x-show="songs.communion.length === 0" class="text-xs text-gray-400">No communion songs added yet.</p>
+          </div>
+        </div>
+
+        <!-- Datalist for autocomplete -->
+        <datalist id="song-list">
+          <template x-for="t in songTitles" :key="t">
+            <option :value="t"></option>
+          </template>
+        </datalist>
+
+        <p class="text-xs text-gray-400">
+          Song titles are fuzzy-matched against <code>data/songs/hymns.yaml</code>.
+          If a title isn't found, a placeholder slide is generated.
+        </p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECTION 4: SERMON
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="card overflow-hidden">
+      <div class="section-toggle" @click="open.sermon = !open.sermon">
+        <div class="flex items-center gap-2">
+          <span class="text-xl" style="color:var(--gold)">🎤</span>
+          <span class="font-semibold">Sermon Details</span>
+          <span class="badge" x-show="sermon.preacher" x-text="sermon.preacher"></span>
+        </div>
+        <svg :class="open.sermon ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div x-show="open.sermon" x-collapse class="p-5 space-y-4">
+        <div class="form-grid form-grid-2">
+          <div class="sm:col-span-2">
+            <label>Sermon Title</label>
+            <input type="text" x-model="sermon.title" placeholder="e.g. Walking in Faith" />
+          </div>
+          <div>
+            <label>Preacher</label>
+            <input type="text" x-model="sermon.preacher" placeholder="Rev. John Mathew" />
+          </div>
+          <div>
+            <label>Sermon Scripture</label>
+            <input type="text" x-model="sermon.scripture" :placeholder="lect.gospel || 'Luke 15:11-32'" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         GENERATE BUTTON
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="card p-5 space-y-3">
+
+      <!-- Summary row -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs text-gray-600 pb-2 border-b border-gray-100">
+        <div>
+          <div class="font-bold text-base" style="color:var(--burgundy)" x-text="formatDate(form.date)"></div>
+          <div>Date</div>
+        </div>
+        <div>
+          <div class="font-bold text-base" style="color:var(--burgundy)"
+               x-text="form.service_type === 'divine_worship' ? 'Divine Worship' : 'Holy Qurbana'"></div>
+          <div>Type</div>
+        </div>
+        <div>
+          <div class="font-bold text-base" style="color:var(--burgundy)" x-text="songCount"></div>
+          <div>Songs</div>
+        </div>
+        <div>
+          <div class="font-bold text-base" style="color:var(--burgundy)"
+               x-text="lect.gospel ? '✓' : '—'"></div>
+          <div>Lectionary</div>
+        </div>
+      </div>
+
+      <button
+        class="btn-generate flex items-center justify-center gap-3"
+        @click="generate()"
+        :disabled="generating"
+      >
+        <span x-show="generating" class="spinner"></span>
+        <span x-show="!generating">⬇</span>
+        <span x-text="generating ? 'Generating presentation…' : 'Generate & Download PowerPoint'"></span>
+      </button>
+
+      <p class="text-center text-xs text-gray-400">
+        Generates a <strong>.pptx</strong> file ready to open in PowerPoint or LibreOffice Impress
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <p class="text-center text-xs text-gray-400 pb-6">
+      Mar Thoma Church Worship Order Generator &bull;
+      <a href="https://github.com" class="underline">Source on GitHub</a>
+    </p>
+
+  </main>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       ALPINE.JS APP
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <script>
+  function app() {
+    return {
+      // ── State ──────────────────────────────────────────────────────────────
+      steps: ['Service', 'Lectionary', 'Songs', 'Sermon', 'Generate'],
+      currentStep: 0,
+
+      open: { service: true, lectionary: true, songs: true, sermon: true },
+
+      form: {
+        date: '{{ today }}',
+        service_type: 'divine_worship',
+        congregation_name: 'Mar Thoma Church',
+      },
+
+      lect: {
+        matchedDate: '',
+        theme: '',
+        first_lesson: '',
+        epistle: '',
+        second_lesson: '',
+        gospel: '',
+      },
+      lectLoading: false,
+      lectEmpty: false,
+
+      songs: {
+        pre_worship: '',
+        between_lessons: '',
+        birthday_anniversary: 'Happy Birthday',
+        offertory: '',
+        doxology: 'Praise God from Whom All Blessings Flow',
+        special_prayer: { enabled: false, topic: '', song: '' },
+        communion: [''],
+      },
+
+      sermon: { title: '', preacher: '', scripture: '' },
+
+      generating: false,
+      flash: '',
+      flashType: 'success',
+      songTitles: [],
+
+      // ── Computed ───────────────────────────────────────────────────────────
+      get songCount() {
+        let n = 0;
+        if (this.songs.pre_worship.trim())         n++;
+        if (this.songs.between_lessons.trim())      n++;
+        if (this.songs.birthday_anniversary.trim()) n++;
+        if (this.songs.offertory.trim())            n++;
+        if (this.songs.doxology.trim())             n++;
+        if (this.songs.special_prayer.enabled && this.songs.special_prayer.song.trim()) n++;
+        if (this.form.service_type === 'holy_qurbana')
+          n += this.songs.communion.filter(s => s.trim()).length;
+        return n;
+      },
+
+      // ── Lifecycle ──────────────────────────────────────────────────────────
+      init() {
+        this.fetchLectionary();
+        this.loadSongTitles();
+      },
+
+      // ── Helpers ────────────────────────────────────────────────────────────
+      formatDate(iso) {
+        if (!iso) return '';
+        try {
+          // Parse as local date (avoid UTC offset shifting the day)
+          const [y, m, d] = iso.split('-').map(Number);
+          return new Date(y, m-1, d).toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric'
+          });
+        } catch { return iso; }
+      },
+
+      setFlash(msg, type = 'success') {
+        this.flash = msg;
+        this.flashType = type;
+        if (type === 'success') setTimeout(() => this.flash = '', 5000);
+      },
+
+      // ── API calls ──────────────────────────────────────────────────────────
+      async fetchLectionary(manual = false) {
+        if (!this.form.date) return;
+        this.lectLoading = true;
+        this.lectEmpty = false;
+        try {
+          const res = await fetch(`/api/lectionary?date=${this.form.date}`);
+          const data = await res.json();
+          if (data.error) { this.lectEmpty = true; return; }
+          this.lect.matchedDate   = data.matched_date || '';
+          this.lect.theme         = data.theme        || '';
+          this.lect.first_lesson  = data.first_lesson || '';
+          this.lect.epistle       = data.epistle      || '';
+          this.lect.second_lesson = data.second_lesson|| '';
+          this.lect.gospel        = data.gospel       || '';
+          this.lectEmpty = !data.found;
+          if (manual && data.found) this.setFlash('Lectionary loaded for ' + this.formatDate(data.matched_date || this.form.date));
+        } catch (e) {
+          this.lectEmpty = true;
+          if (manual) this.setFlash('Could not reach server', 'error');
+        } finally {
+          this.lectLoading = false;
+        }
+      },
+
+      async loadSongTitles() {
+        try {
+          const res = await fetch('/api/songs');
+          const data = await res.json();
+          this.songTitles = data.titles || [];
+        } catch {}
+      },
+
+      async generate() {
+        this.generating = true;
+        this.flash = '';
+        try {
+          const payload = {
+            date:              this.form.date,
+            service_type:      this.form.service_type,
+            congregation_name: this.form.congregation_name,
+
+            lectionary_theme: this.lect.theme,
+            first_lesson:     this.lect.first_lesson,
+            epistle:          this.lect.epistle,
+            second_lesson:    this.lect.second_lesson,
+            gospel:           this.lect.gospel,
+
+            songs: {
+              pre_worship:          this.songs.pre_worship,
+              between_lessons:      this.songs.between_lessons,
+              birthday_anniversary: this.songs.birthday_anniversary,
+              offertory:            this.songs.offertory,
+              doxology:             this.songs.doxology,
+              special_prayer: {
+                enabled: this.songs.special_prayer.enabled,
+                topic:   this.songs.special_prayer.topic,
+                song:    this.songs.special_prayer.song,
+              },
+              communion: this.songs.communion.filter(s => s.trim()),
+            },
+
+            sermon: {
+              title:     this.sermon.title,
+              preacher:  this.sermon.preacher,
+              scripture: this.sermon.scripture,
+            },
+          };
+
+          const res = await fetch('/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+            this.setFlash(err.error || 'Generation failed', 'error');
+            return;
+          }
+
+          // Trigger browser download
+          const blob = await res.blob();
+          const stype = this.form.service_type === 'holy_qurbana' ? 'holy_qurbana' : 'divine_worship';
+          const filename = `${this.form.date}_${stype}.pptx`;
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url; a.download = filename; a.click();
+          URL.revokeObjectURL(url);
+
+          this.setFlash(`${filename} downloaded!`);
+        } catch (e) {
+          this.setFlash('Network error — is the server running?', 'error');
+        } finally {
+          this.generating = false;
+        }
+      },
+    };
+  }
+  </script>
+
+  <!--
+    Alpine x-collapse plugin (smooth accordion animation).
+    Inline polyfill: we use a simple CSS transition instead.
+  -->
+  <script>
+  // Simple x-collapse directive polyfill (no CDN needed)
+  document.addEventListener('alpine:init', () => {
+    Alpine.directive('collapse', (el) => {
+      el.style.overflow = 'hidden';
+      el.style.transition = 'max-height 0.25s ease, opacity 0.2s ease';
+      // Observe x-show changes
+      const obs = new MutationObserver(() => {
+        const hidden = el.style.display === 'none';
+        if (!hidden) {
+          el.style.display = '';
+          el.style.maxHeight = el.scrollHeight + 'px';
+          el.style.opacity = '1';
+        }
+      });
+      obs.observe(el, { attributes: true, attributeFilter: ['style'] });
+    });
+  });
+  </script>
+</body>
+</html>
