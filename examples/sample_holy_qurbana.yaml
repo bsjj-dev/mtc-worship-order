@@ -1,0 +1,31 @@
+# Sample weekly config – English Holy Qurbana (Communion)
+# Usage: python generate.py --config examples/sample_holy_qurbana.yaml
+
+date: "2026-03-08"
+service_type: holy_qurbana
+congregation_name: "Mar Thoma Church"
+
+sermon:
+  title: "The Bread of Life"
+  preacher: "Rev. John Mathew"
+  scripture: "John 6:35-51"
+
+songs:
+  pre_worship: ""
+  between_lessons: ""
+  birthday_anniversary: "Happy Birthday"
+  special_prayer:
+    enabled: true
+    topic: "Mission Sunday"
+    song: ""
+  offertory: ""
+  communion:
+    - ""     # add communion song titles here
+    - ""
+  doxology: "Praise God from Whom All Blessings Flow"
+
+lectionary_overrides:
+  first_lesson: ""
+  epistle: ""
+  second_lesson: ""
+  gospel: ""

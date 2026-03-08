@@ -1,0 +1,29 @@
+# Sample weekly config – English Divine Worship
+# Usage: python generate.py --config examples/sample_divine_worship.yaml
+
+date: "2026-03-08"
+service_type: divine_worship
+congregation_name: "Mar Thoma Church"
+
+sermon:
+  title: "Walking in Faith"
+  preacher: "Rev. John Mathew"
+  scripture: "Luke 15:11-32"
+
+songs:
+  pre_worship: ""                   # leave blank to skip
+  between_lessons: ""
+  birthday_anniversary: "Happy Birthday"
+  special_prayer:
+    enabled: false
+    topic: ""
+    song: ""
+  offertory: ""
+  doxology: "Praise God from Whom All Blessings Flow"
+
+# Optional: override lectionary readings (leave blank to use auto-fetched values)
+lectionary_overrides:
+  first_lesson: ""
+  epistle: ""
+  second_lesson: ""
+  gospel: ""

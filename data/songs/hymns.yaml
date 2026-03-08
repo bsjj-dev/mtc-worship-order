@@ -1,0 +1,18 @@
+# Mar Thoma Church – Hymns Database
+# Add your own hymns below following this format:
+#
+# hymns:
+#   - title: "Hymn Title Here"
+#     lyrics: |
+#       Verse 1 line 1
+#       Verse 1 line 2
+#
+#       Verse 2 line 1
+#       Verse 2 line 2
+#
+# Tips:
+#   - Separate verses/sections with a blank line (they become separate slides)
+#   - Each section of ≤8 lines fits on one slide
+#   - Titles are fuzzy-matched, so minor spelling differences still find the hymn
+
+hymns: []
