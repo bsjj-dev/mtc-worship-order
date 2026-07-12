@@ -11,14 +11,14 @@ sermon:
   scripture: "Luke 15:11-32"
 
 songs:
-  pre_worship: ""                   # leave blank to skip
-  between_lessons: ""
+  pre_worship: "How Great Thou Art"
+  between_lessons: "Great is Thy Faithfulness"
   birthday_anniversary: "Happy Birthday"
   special_prayer:
     enabled: false
     topic: ""
     song: ""
-  offertory: ""
+  offertory: "Give Thanks"
   doxology: "Praise God from Whom All Blessings Flow"
 
 # Optional: override lectionary readings (leave blank to use auto-fetched values)

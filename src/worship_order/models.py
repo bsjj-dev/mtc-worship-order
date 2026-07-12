@@ -82,7 +82,8 @@ class ServiceConfig:
         """Human-readable date, e.g. 'March 8, 2026'."""
         from datetime import datetime
         try:
-            return datetime.strptime(self.date, "%Y-%m-%d").strftime("%B %-d, %Y")
+            dt = datetime.strptime(self.date, "%Y-%m-%d")
+            return f"{dt.strftime('%B')} {dt.day}, {dt.year}"
         except (ValueError, AttributeError):
             return self.date
 

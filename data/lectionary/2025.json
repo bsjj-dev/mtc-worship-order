@@ -1,0 +1,479 @@
+{
+  "2025-01-05": {
+    "date": "2025-01-05",
+    "theme": "Epiphany",
+    "first_lesson": "Isaiah 60:1-6",
+    "epistle": "Ephesians 3:1-12",
+    "second_lesson": "Acts 13:44-52",
+    "gospel": "Matthew 2:1-12",
+    "evening": ""
+  },
+  "2025-01-12": {
+    "date": "2025-01-12",
+    "theme": "The Baptism of our Lord",
+    "first_lesson": "Isaiah 42:1-9",
+    "epistle": "Acts 10:34-43",
+    "second_lesson": "Romans 6:1-11",
+    "gospel": "Mark 1:4-11",
+    "evening": ""
+  },
+  "2025-01-19": {
+    "date": "2025-01-19",
+    "theme": "Second Sunday after Epiphany",
+    "first_lesson": "1 Samuel 3:1-10",
+    "epistle": "1 Corinthians 6:12-20",
+    "second_lesson": "Acts 9:1-19",
+    "gospel": "John 1:43-51",
+    "evening": ""
+  },
+  "2025-01-26": {
+    "date": "2025-01-26",
+    "theme": "Third Sunday after Epiphany",
+    "first_lesson": "Jonah 3:1-5",
+    "epistle": "1 Corinthians 7:29-31",
+    "second_lesson": "Acts 16:6-15",
+    "gospel": "Mark 1:14-20",
+    "evening": ""
+  },
+  "2025-02-02": {
+    "date": "2025-02-02",
+    "theme": "Presentation of our Lord",
+    "first_lesson": "Malachi 3:1-4",
+    "epistle": "Hebrews 2:14-18",
+    "second_lesson": "Acts 4:1-12",
+    "gospel": "Luke 2:22-40",
+    "evening": ""
+  },
+  "2025-02-09": {
+    "date": "2025-02-09",
+    "theme": "Fifth Sunday after Epiphany",
+    "first_lesson": "Isaiah 40:21-31",
+    "epistle": "1 Corinthians 9:16-23",
+    "second_lesson": "Acts 17:16-34",
+    "gospel": "Mark 1:29-39",
+    "evening": ""
+  },
+  "2025-02-16": {
+    "date": "2025-02-16",
+    "theme": "Sixth Sunday after Epiphany",
+    "first_lesson": "2 Kings 5:1-14",
+    "epistle": "1 Corinthians 9:24-27",
+    "second_lesson": "Acts 19:1-10",
+    "gospel": "Mark 1:40-45",
+    "evening": ""
+  },
+  "2025-02-23": {
+    "date": "2025-02-23",
+    "theme": "Transfiguration Sunday",
+    "first_lesson": "2 Kings 2:1-12",
+    "epistle": "2 Corinthians 4:3-6",
+    "second_lesson": "Acts 3:1-10",
+    "gospel": "Mark 9:2-9",
+    "evening": ""
+  },
+  "2025-03-02": {
+    "date": "2025-03-02",
+    "theme": "First Sunday in Lent",
+    "first_lesson": "Genesis 9:8-17",
+    "epistle": "1 Peter 3:18-22",
+    "second_lesson": "Acts 7:1-16",
+    "gospel": "Mark 1:9-15",
+    "evening": ""
+  },
+  "2025-03-09": {
+    "date": "2025-03-09",
+    "theme": "Second Sunday in Lent",
+    "first_lesson": "Genesis 17:1-7",
+    "epistle": "Romans 4:13-25",
+    "second_lesson": "Acts 7:17-36",
+    "gospel": "Mark 8:31-38",
+    "evening": ""
+  },
+  "2025-03-16": {
+    "date": "2025-03-16",
+    "theme": "Third Sunday in Lent",
+    "first_lesson": "Exodus 20:1-17",
+    "epistle": "1 Corinthians 1:18-25",
+    "second_lesson": "Acts 7:37-53",
+    "gospel": "John 2:13-22",
+    "evening": ""
+  },
+  "2025-03-23": {
+    "date": "2025-03-23",
+    "theme": "Fourth Sunday in Lent",
+    "first_lesson": "Numbers 21:4-9",
+    "epistle": "Ephesians 2:1-10",
+    "second_lesson": "Acts 8:1-13",
+    "gospel": "John 3:14-21",
+    "evening": ""
+  },
+  "2025-03-30": {
+    "date": "2025-03-30",
+    "theme": "Fifth Sunday in Lent",
+    "first_lesson": "Jeremiah 31:31-34",
+    "epistle": "Hebrews 5:5-10",
+    "second_lesson": "Acts 8:26-40",
+    "gospel": "John 12:20-33",
+    "evening": ""
+  },
+  "2025-04-06": {
+    "date": "2025-04-06",
+    "theme": "Palm Sunday / Hosanna Sunday",
+    "first_lesson": "Isaiah 50:4-9",
+    "epistle": "Philippians 2:5-11",
+    "second_lesson": "Acts 9:19-31",
+    "gospel": "Mark 11:1-11",
+    "evening": ""
+  },
+  "2025-04-13": {
+    "date": "2025-04-13",
+    "theme": "Easter Sunday",
+    "first_lesson": "Isaiah 25:6-9",
+    "epistle": "1 Corinthians 15:1-11",
+    "second_lesson": "Acts 10:34-43",
+    "gospel": "Mark 16:1-8",
+    "evening": ""
+  },
+  "2025-04-20": {
+    "date": "2025-04-20",
+    "theme": "Second Sunday of Easter",
+    "first_lesson": "Exodus 14:10-22",
+    "epistle": "1 John 1:1-10",
+    "second_lesson": "Acts 4:32-37",
+    "gospel": "John 20:19-31",
+    "evening": ""
+  },
+  "2025-04-27": {
+    "date": "2025-04-27",
+    "theme": "Third Sunday of Easter",
+    "first_lesson": "Micah 4:1-5",
+    "epistle": "1 John 3:1-7",
+    "second_lesson": "Acts 3:12-19",
+    "gospel": "Luke 24:36-48",
+    "evening": ""
+  },
+  "2025-05-04": {
+    "date": "2025-05-04",
+    "theme": "Fourth Sunday of Easter",
+    "first_lesson": "Genesis 48:8-16",
+    "epistle": "1 John 3:16-24",
+    "second_lesson": "Acts 4:5-12",
+    "gospel": "John 10:11-18",
+    "evening": ""
+  },
+  "2025-05-11": {
+    "date": "2025-05-11",
+    "theme": "Fifth Sunday of Easter",
+    "first_lesson": "Isaiah 5:1-7",
+    "epistle": "1 John 4:7-21",
+    "second_lesson": "Acts 8:26-40",
+    "gospel": "John 15:1-8",
+    "evening": ""
+  },
+  "2025-05-18": {
+    "date": "2025-05-18",
+    "theme": "Sixth Sunday of Easter",
+    "first_lesson": "Isaiah 45:11-19",
+    "epistle": "1 John 5:1-6",
+    "second_lesson": "Acts 10:44-48",
+    "gospel": "John 15:9-17",
+    "evening": ""
+  },
+  "2025-05-25": {
+    "date": "2025-05-25",
+    "theme": "Ascension Sunday",
+    "first_lesson": "2 Kings 2:1-15",
+    "epistle": "Ephesians 1:15-23",
+    "second_lesson": "Acts 1:1-11",
+    "gospel": "Luke 24:44-53",
+    "evening": ""
+  },
+  "2025-06-01": {
+    "date": "2025-06-01",
+    "theme": "Pentecost",
+    "first_lesson": "Ezekiel 37:1-14",
+    "epistle": "Romans 8:22-27",
+    "second_lesson": "Acts 2:1-21",
+    "gospel": "John 15:26-27",
+    "evening": ""
+  },
+  "2025-06-08": {
+    "date": "2025-06-08",
+    "theme": "Trinity Sunday",
+    "first_lesson": "Isaiah 6:1-8",
+    "epistle": "Romans 8:12-17",
+    "second_lesson": "Acts 2:22-36",
+    "gospel": "John 3:1-17",
+    "evening": ""
+  },
+  "2025-06-15": {
+    "date": "2025-06-15",
+    "theme": "Second Sunday after Pentecost",
+    "first_lesson": "1 Samuel 15:34-16:13",
+    "epistle": "2 Corinthians 5:6-17",
+    "second_lesson": "Acts 11:19-30",
+    "gospel": "Mark 4:26-34",
+    "evening": ""
+  },
+  "2025-06-22": {
+    "date": "2025-06-22",
+    "theme": "Third Sunday after Pentecost",
+    "first_lesson": "Job 38:1-11",
+    "epistle": "2 Corinthians 6:1-13",
+    "second_lesson": "Acts 12:1-17",
+    "gospel": "Mark 4:35-41",
+    "evening": ""
+  },
+  "2025-06-29": {
+    "date": "2025-06-29",
+    "theme": "Fourth Sunday after Pentecost",
+    "first_lesson": "Lamentations 3:22-33",
+    "epistle": "2 Corinthians 8:7-15",
+    "second_lesson": "Acts 13:1-12",
+    "gospel": "Mark 5:21-43",
+    "evening": ""
+  },
+  "2025-07-06": {
+    "date": "2025-07-06",
+    "theme": "Fifth Sunday after Pentecost",
+    "first_lesson": "Ezekiel 2:1-5",
+    "epistle": "2 Corinthians 12:2-10",
+    "second_lesson": "Acts 14:1-18",
+    "gospel": "Mark 6:1-13",
+    "evening": ""
+  },
+  "2025-07-13": {
+    "date": "2025-07-13",
+    "theme": "Sixth Sunday after Pentecost",
+    "first_lesson": "Amos 7:7-15",
+    "epistle": "Ephesians 1:3-14",
+    "second_lesson": "Acts 15:1-21",
+    "gospel": "Mark 6:14-29",
+    "evening": ""
+  },
+  "2025-07-20": {
+    "date": "2025-07-20",
+    "theme": "Seventh Sunday after Pentecost",
+    "first_lesson": "Jeremiah 23:1-6",
+    "epistle": "Ephesians 2:11-22",
+    "second_lesson": "Acts 15:22-35",
+    "gospel": "Mark 6:30-44",
+    "evening": ""
+  },
+  "2025-07-27": {
+    "date": "2025-07-27",
+    "theme": "Eighth Sunday after Pentecost",
+    "first_lesson": "2 Kings 4:42-44",
+    "epistle": "Ephesians 3:14-21",
+    "second_lesson": "Acts 16:16-34",
+    "gospel": "John 6:1-21",
+    "evening": ""
+  },
+  "2025-08-03": {
+    "date": "2025-08-03",
+    "theme": "Ninth Sunday after Pentecost",
+    "first_lesson": "Exodus 16:2-15",
+    "epistle": "Ephesians 4:1-16",
+    "second_lesson": "Acts 17:1-15",
+    "gospel": "John 6:24-35",
+    "evening": ""
+  },
+  "2025-08-10": {
+    "date": "2025-08-10",
+    "theme": "Tenth Sunday after Pentecost",
+    "first_lesson": "1 Kings 19:4-8",
+    "epistle": "Ephesians 4:25-5:2",
+    "second_lesson": "Acts 18:1-17",
+    "gospel": "John 6:35-51",
+    "evening": ""
+  },
+  "2025-08-17": {
+    "date": "2025-08-17",
+    "theme": "Eleventh Sunday after Pentecost",
+    "first_lesson": "Proverbs 9:1-6",
+    "epistle": "Ephesians 5:15-20",
+    "second_lesson": "Acts 19:11-22",
+    "gospel": "John 6:51-58",
+    "evening": ""
+  },
+  "2025-08-24": {
+    "date": "2025-08-24",
+    "theme": "Twelfth Sunday after Pentecost",
+    "first_lesson": "Joshua 24:1-2a,14-18",
+    "epistle": "Ephesians 6:10-20",
+    "second_lesson": "Acts 20:17-38",
+    "gospel": "John 6:56-69",
+    "evening": ""
+  },
+  "2025-08-31": {
+    "date": "2025-08-31",
+    "theme": "Thirteenth Sunday after Pentecost",
+    "first_lesson": "Deuteronomy 4:1-9",
+    "epistle": "James 1:17-27",
+    "second_lesson": "Acts 21:1-14",
+    "gospel": "Mark 7:1-8,14-15,21-23",
+    "evening": ""
+  },
+  "2025-09-07": {
+    "date": "2025-09-07",
+    "theme": "Fourteenth Sunday after Pentecost",
+    "first_lesson": "Isaiah 35:4-7",
+    "epistle": "James 2:1-10,14-17",
+    "second_lesson": "Acts 22:22-30",
+    "gospel": "Mark 7:24-37",
+    "evening": ""
+  },
+  "2025-09-14": {
+    "date": "2025-09-14",
+    "theme": "Festival of the Cross",
+    "first_lesson": "Isaiah 45:21-25",
+    "epistle": "Philippians 2:5-11",
+    "second_lesson": "Acts 23:1-11",
+    "gospel": "John 12:31-36",
+    "evening": ""
+  },
+  "2025-09-21": {
+    "date": "2025-09-21",
+    "theme": "Sixteenth Sunday after Pentecost",
+    "first_lesson": "Jeremiah 11:18-20",
+    "epistle": "James 3:13-4:3",
+    "second_lesson": "Acts 24:1-21",
+    "gospel": "Mark 9:30-37",
+    "evening": ""
+  },
+  "2025-09-28": {
+    "date": "2025-09-28",
+    "theme": "Seventeenth Sunday after Pentecost",
+    "first_lesson": "Numbers 11:4-6,10-16,24-29",
+    "epistle": "James 5:13-20",
+    "second_lesson": "Acts 25:1-12",
+    "gospel": "Mark 9:38-50",
+    "evening": ""
+  },
+  "2025-10-05": {
+    "date": "2025-10-05",
+    "theme": "Eighteenth Sunday after Pentecost",
+    "first_lesson": "Genesis 2:18-24",
+    "epistle": "Hebrews 1:1-4,2:5-12",
+    "second_lesson": "Acts 26:1-23",
+    "gospel": "Mark 10:2-16",
+    "evening": ""
+  },
+  "2025-10-12": {
+    "date": "2025-10-12",
+    "theme": "Nineteenth Sunday after Pentecost",
+    "first_lesson": "Amos 5:6-7,10-15",
+    "epistle": "Hebrews 4:12-16",
+    "second_lesson": "Acts 27:1-12",
+    "gospel": "Mark 10:17-31",
+    "evening": ""
+  },
+  "2025-10-19": {
+    "date": "2025-10-19",
+    "theme": "Twentieth Sunday after Pentecost",
+    "first_lesson": "Isaiah 53:4-12",
+    "epistle": "Hebrews 5:1-10",
+    "second_lesson": "Acts 27:27-44",
+    "gospel": "Mark 10:35-45",
+    "evening": ""
+  },
+  "2025-10-26": {
+    "date": "2025-10-26",
+    "theme": "Reformation Sunday",
+    "first_lesson": "Jeremiah 31:31-34",
+    "epistle": "Romans 3:19-28",
+    "second_lesson": "Acts 28:1-10",
+    "gospel": "Mark 10:46-52",
+    "evening": ""
+  },
+  "2025-11-02": {
+    "date": "2025-11-02",
+    "theme": "All Saints Sunday",
+    "first_lesson": "Isaiah 25:6-9",
+    "epistle": "Revelation 21:1-6",
+    "second_lesson": "Acts 28:11-31",
+    "gospel": "John 11:32-44",
+    "evening": ""
+  },
+  "2025-11-09": {
+    "date": "2025-11-09",
+    "theme": "Twenty-third Sunday after Pentecost",
+    "first_lesson": "1 Kings 17:8-16",
+    "epistle": "Hebrews 9:24-28",
+    "second_lesson": "Romans 1:1-17",
+    "gospel": "Mark 12:38-44",
+    "evening": ""
+  },
+  "2025-11-16": {
+    "date": "2025-11-16",
+    "theme": "Twenty-fourth Sunday after Pentecost",
+    "first_lesson": "Daniel 12:1-3",
+    "epistle": "Hebrews 10:11-25",
+    "second_lesson": "Romans 2:1-16",
+    "gospel": "Mark 13:1-8",
+    "evening": ""
+  },
+  "2025-11-23": {
+    "date": "2025-11-23",
+    "theme": "Christ the King Sunday",
+    "first_lesson": "Daniel 7:9-14",
+    "epistle": "Revelation 1:4-8",
+    "second_lesson": "Romans 3:21-31",
+    "gospel": "John 18:33-37",
+    "evening": ""
+  },
+  "2025-11-30": {
+    "date": "2025-11-30",
+    "theme": "First Sunday of Advent",
+    "first_lesson": "Jeremiah 33:14-16",
+    "epistle": "1 Thessalonians 3:9-13",
+    "second_lesson": "Romans 5:1-11",
+    "gospel": "Luke 21:25-36",
+    "evening": ""
+  },
+  "2025-12-07": {
+    "date": "2025-12-07",
+    "theme": "Second Sunday of Advent",
+    "first_lesson": "Malachi 3:1-4",
+    "epistle": "Philippians 1:3-11",
+    "second_lesson": "Romans 6:1-14",
+    "gospel": "Luke 3:1-6",
+    "evening": ""
+  },
+  "2025-12-14": {
+    "date": "2025-12-14",
+    "theme": "Third Sunday of Advent",
+    "first_lesson": "Zephaniah 3:14-20",
+    "epistle": "Philippians 4:4-7",
+    "second_lesson": "Romans 8:1-17",
+    "gospel": "Luke 3:7-18",
+    "evening": ""
+  },
+  "2025-12-21": {
+    "date": "2025-12-21",
+    "theme": "Fourth Sunday of Advent",
+    "first_lesson": "Micah 5:2-5",
+    "epistle": "Hebrews 10:5-10",
+    "second_lesson": "Romans 8:18-30",
+    "gospel": "Luke 1:39-55",
+    "evening": ""
+  },
+  "2025-12-25": {
+    "date": "2025-12-25",
+    "theme": "Christmas Day",
+    "first_lesson": "Isaiah 9:2-7",
+    "epistle": "Titus 2:11-14",
+    "second_lesson": "Acts 6:8-15",
+    "gospel": "Luke 2:1-20",
+    "evening": ""
+  },
+  "2025-12-28": {
+    "date": "2025-12-28",
+    "theme": "First Sunday after Christmas",
+    "first_lesson": "Isaiah 61:10-62:3",
+    "epistle": "Galatians 4:4-7",
+    "second_lesson": "Romans 8:31-39",
+    "gospel": "Luke 2:22-40",
+    "evening": ""
+  }
+}

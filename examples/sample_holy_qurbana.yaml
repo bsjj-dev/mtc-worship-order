@@ -11,17 +11,17 @@ sermon:
   scripture: "John 6:35-51"
 
 songs:
-  pre_worship: ""
-  between_lessons: ""
+  pre_worship: "Blessed Assurance"
+  between_lessons: "Amazing Grace"
   birthday_anniversary: "Happy Birthday"
   special_prayer:
     enabled: true
     topic: "Mission Sunday"
     song: ""
-  offertory: ""
+  offertory: "Give Thanks"
   communion:
-    - ""     # add communion song titles here
-    - ""
+    - "How Great Thou Art"
+    - "Hallelujah Praise the Lord"
   doxology: "Praise God from Whom All Blessings Flow"
 
 lectionary_overrides:

@@ -9,8 +9,8 @@ Usage:
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
-from datetime import date, datetime
+from dataclasses import dataclass
+from datetime import datetime
 from typing import Optional
 
 from .parser import load_lectionary_json
@@ -50,16 +50,24 @@ class LectionaryEntry:
 def get_readings(date_str: str) -> LectionaryEntry:
     """Return a LectionaryEntry for *date_str* (ISO format).
 
-    Tries the year matching *date_str* first; falls back gracefully.
+    Loads from pre-parsed JSON lectionary files.
     """
+    # Load from cached JSON files
     try:
         year = int(date_str[:4])
     except (ValueError, IndexError):
         year = datetime.today().year
 
-    try:
-        data = load_lectionary_json(year)
-    except FileNotFoundError:
+    data = None
+    for try_year in [year, year - 1, year + 1]:
+        try:
+            data = load_lectionary_json(try_year)
+            if date_str in data:
+                break
+        except FileNotFoundError:
+            continue
+    
+    if data is None:
         logger.warning("Lectionary data not found for %d – returning empty entry.", year)
         return LectionaryEntry(date=date_str)
 
@@ -72,7 +80,6 @@ def get_readings(date_str: str) -> LectionaryEntry:
             epistle=row.get("epistle", ""),
             second_lesson=row.get("second_lesson", ""),
             gospel=row.get("gospel", ""),
-            evening=row.get("evening", ""),
         )
 
     # Fallback: find the nearest Sunday on or before the given date

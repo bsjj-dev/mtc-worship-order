@@ -1,4 +1,4 @@
-# Mar Thoma Church – Hymns Database
+# Mar Thoma Church - Hymns Database
 # Add your own hymns below following this format:
 #
 # hymns:
@@ -12,7 +12,180 @@
 #
 # Tips:
 #   - Separate verses/sections with a blank line (they become separate slides)
-#   - Each section of ≤8 lines fits on one slide
+#   - Each section of 8 lines or fewer fits on one slide
 #   - Titles are fuzzy-matched, so minor spelling differences still find the hymn
 
-hymns: []
+hymns:
+  - title: "How Great Thou Art"
+    lyrics: |
+      O Lord my God, when I in awesome wonder
+      Consider all the worlds Thy hands have made
+      I see the stars, I hear the rolling thunder
+      Thy power throughout the universe displayed
+
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+
+      When through the woods and forest glades I wander
+      And hear the birds sing sweetly in the trees
+      When I look down from lofty mountain grandeur
+      And hear the brook and feel the gentle breeze
+
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+
+      And when I think that God, His Son not sparing
+      Sent Him to die, I scarce can take it in
+      That on the cross, my burden gladly bearing
+      He bled and died to take away my sin
+
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+
+      When Christ shall come with shout of acclamation
+      And take me home, what joy shall fill my heart
+      Then I shall bow in humble adoration
+      And there proclaim, my God, how great Thou art
+
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art, how great Thou art
+      Then sings my soul, my Saviour God, to Thee
+      How great Thou art
+
+  - title: "Great is Thy Faithfulness"
+    lyrics: |
+      Great is Thy faithfulness, O God my Father
+      There is no shadow of turning with Thee
+      Thou changest not, Thy compassions they fail not
+      As Thou hast been Thou forever wilt be
+
+      Great is Thy faithfulness
+      Great is Thy faithfulness
+      Morning by morning new mercies I see
+      All I have needed Thy hand hath provided
+      Great is Thy faithfulness, Lord unto me
+
+      Summer and winter and springtime and harvest
+      Sun, moon, and stars in their courses above
+      Join with all nature in manifold witness
+      To Thy great faithfulness, mercy, and love
+
+      Great is Thy faithfulness
+      Great is Thy faithfulness
+      Morning by morning new mercies I see
+      All I have needed Thy hand hath provided
+      Great is Thy faithfulness, Lord unto me
+
+      Pardon for sin and a peace that endureth
+      Thine own dear presence to cheer and to guide
+      Strength for today and bright hope for tomorrow
+      Blessings all mine, with ten thousand beside
+
+      Great is Thy faithfulness
+      Great is Thy faithfulness
+      Morning by morning new mercies I see
+      All I have needed Thy hand hath provided
+      Great is Thy faithfulness, Lord unto me
+
+  - title: "Praise God from Whom All Blessings Flow"
+    lyrics: |
+      Praise God, from whom all blessings flow
+      Praise Him, all creatures here below
+      Praise Him above, ye heavenly host
+      Praise Father, Son, and Holy Ghost
+      Amen
+
+  - title: "Happy Birthday"
+    lyrics: |
+      Happy birthday to you
+      Happy birthday to you
+      Happy birthday, God bless you
+      Happy birthday to you
+
+      May the good Lord bless you
+      May the good Lord bless you
+      May the good Lord bless you
+      Happy birthday to you
+
+  - title: "Give Thanks"
+    lyrics: |
+      Give thanks with a grateful heart
+      Give thanks to the Holy One
+      Give thanks because He has given
+      Jesus Christ, His Son
+
+      Give thanks with a grateful heart
+      Give thanks to the Holy One
+      Give thanks because He has given
+      Jesus Christ, His Son
+
+      And now let the weak say, I am strong
+      Let the poor say, I am rich
+      Because of what the Lord has done for us
+
+      And now let the weak say, I am strong
+      Let the poor say, I am rich
+      Because of what the Lord has done for us
+      Give thanks
+
+  - title: "Hallelujah Praise the Lord"
+    lyrics: |
+      Hallelujah, praise the Lord
+      Hallelujah, praise the Lord
+      Let us all together praise the Lord
+      Hallelujah, praise the Lord
+
+      Hallelujah, praise the Lord
+      Hallelujah, praise the Lord
+      Let us all together praise the Lord
+      Hallelujah, praise the Lord
+
+  - title: "Amazing Grace"
+    lyrics: |
+      Amazing grace, how sweet the sound
+      That saved a wretch like me
+      I once was lost, but now am found
+      Was blind, but now I see
+
+      Twas grace that taught my heart to fear
+      And grace my fears relieved
+      How precious did that grace appear
+      The hour I first believed
+
+      Through many dangers, toils and snares
+      I have already come
+      Tis grace hath brought me safe thus far
+      And grace will lead me home
+
+      When we have been there ten thousand years
+      Bright shining as the sun
+      We have no less days to sing Gods praise
+      Than when we first begun
+
+  - title: "Blessed Assurance"
+    lyrics: |
+      Blessed assurance, Jesus is mine
+      O what a foretaste of glory divine
+      Heir of salvation, purchase of God
+      Born of His Spirit, washed in His blood
+
+      This is my story, this is my song
+      Praising my Saviour all the day long
+      This is my story, this is my song
+      Praising my Saviour all the day long
+
+      Perfect submission, perfect delight
+      Visions of rapture now burst on my sight
+      Angels descending bring from above
+      Echoes of mercy, whispers of love
+
+      This is my story, this is my song
+      Praising my Saviour all the day long
+      This is my story, this is my song
+      Praising my Saviour all the day long
